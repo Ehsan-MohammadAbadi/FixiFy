@@ -12,6 +12,7 @@ class Tasker extends Model
     use HasFactory;
 
     protected $fillable = [
+       'tasker_code',
       'full_name',
        'email',
        'profile',
