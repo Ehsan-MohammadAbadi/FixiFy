@@ -15,6 +15,7 @@ class Admin extends Model
       'name',
       'last_name',
       'national_code',
+        'personal_code',
     ];
 }
 
