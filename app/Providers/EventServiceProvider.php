@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 use App\Models\Admin;
+use App\Models\Task;
 use App\Models\Tasker;
 use App\Observers\AdminObserver;
 use App\Observers\TaskerObserver;
+use App\Observers\TaskObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -31,6 +33,7 @@ class EventServiceProvider extends ServiceProvider
     {
         Admin::observe(AdminObserver::class);
         Tasker::observe(TaskerObserver::class);
+        Task::observe(TaskObserver::class);
     }
 
     /**
