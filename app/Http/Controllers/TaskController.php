@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskRequest;
+use App\Http\Resources\TaskResource;
 use App\Models\task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function add(Request $request)
+    public function add(TaskRequest $request, Task $task)
     {
-        $request->validate([
-            'name' => 'required',
-            'category' => 'required',
-        ]);
         Task::create($request->all());
         return response()->json([
-            'message' => 'Task added successfully'
+            'message' => 'Task added successfully',
+            'data'  => new TaskResource($task)
         ],200);
     }
 }
