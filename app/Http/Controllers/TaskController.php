@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function add(TaskRequest $request, Task $task)
+    public function add(TaskRequest $taskRequest)
     {
-        Task::create($request->all());
+        Task::create($taskRequest->all());
         return response()->json([
             'message' => 'Task added successfully',
-            'data'  => new TaskResource($task)
+            'data'  => new TaskResource($taskRequest)
         ],200);
     }
 }
