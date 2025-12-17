@@ -23,11 +23,11 @@ class TaskerController extends Controller
         ],200);
     }
 
-    public function show(TaskerRequest $taskerRequest)
+    public function show(Tasker $tasker)
     {
         return response()->json([
             'message' => 'Data found',
-            'Data' => $taskerRequest,
+            'Data' => $tasker,
         ],200);
     }
 
@@ -37,6 +37,15 @@ class TaskerController extends Controller
         return response()->json([
             'message' => 'Data updated',
             'Data' => $tasker
+        ],200);
+    }
+
+
+    public function destroy(Tasker $tasker)
+    {
+            $tasker->delete();
+        return response()->json([
+            'message' => 'Tasker deleted successfully !!',
         ],200);
     }
 }

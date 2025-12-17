@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
+use App\Http\Resources\TaskerResource;
 use App\Models\Tasker;
-
 class TaskerObserver
 {
 
@@ -13,7 +13,7 @@ class TaskerObserver
     }
     public function created(Tasker $tasker): void
     {
-        //
+
     }
 
     /**

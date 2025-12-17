@@ -27,6 +27,7 @@ return new class extends Migration
             $table->float('punctuality')->default(0);
             $table->float('solution')->default(0);
             $table->float('pay_out')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

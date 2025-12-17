@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
 
 class Tasker extends Model
 {
-    use HasApiTokens;
     use HasFactory;
+    use HasApiTokens;
+    use SoftDeletes;
 
     protected $fillable = [
        'tasker_code',
@@ -29,4 +31,5 @@ class Tasker extends Model
         'created_at',
         'updated_at',
     ];
+    protected $dates = ['deleted_at'];
 }
